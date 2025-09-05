@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창의력 검사 프로그램</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 창의력 검사 프로그램</h1>
+            <p>유창성, 독창성, 융통성, 정교성을 측정하는 종합 창의력 검사</p>
+        </header>
+
+        <div id="intro-section" class="section active">
+            <div class="intro-content">
+                <h2>검사 안내</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>💡 유창성 (Fluency)</h3>
+                        <p>짧은 시간 내에 많은 아이디어를 생성하는 능력</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>✨ 독창성 (Originality)</h3>
+                        <p>새롭고 독특한 아이디어를 생각해내는 능력</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔄 융통성 (Flexibility)</h3>
+                        <p>다양한 관점에서 사고하고 접근하는 능력</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎯 정교성 (Elaboration)</h3>
+                        <p>아이디어를 구체적이고 상세하게 발전시키는 능력</p>
+                    </div>
+                </div>
+                <div class="test-info">
+                    <p><strong>검사 시간:</strong> 약 20-30분</p>
+                    <p><strong>문제 수:</strong> 총 8문제</p>
+                    <p><strong>주의사항:</strong> 정답은 없습니다. 자유롭게 생각하고 답해주세요.</p>
+                </div>
+                <button id="start-test" class="btn btn-primary">검사 시작하기</button>
+            </div>
+        </div>
+
+        <div id="test-section" class="section">
+            <div class="test-header">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="question-counter">
+                    <span id="current-question">1</span> / <span id="total-questions">8</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-header">
+                    <h2 id="question-title"></h2>
+                    <div class="question-type" id="question-type"></div>
+                </div>
+                <div class="question-content">
+                    <p id="question-text"></p>
+                    <div id="question-instructions"></div>
+                </div>
+                <div class="answer-area">
+                    <div id="answer-inputs"></div>
+                </div>
+                <div class="timer" id="timer">
+                    <span id="time-display">05:00</span>
+                </div>
+                <div class="question-controls">
+                    <button id="next-question" class="btn btn-primary" disabled>다음 문제</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-section" class="section">
+            <div class="result-header">
+                <h2>🎉 검사 완료!</h2>
+                <p>당신의 창의력 검사 결과입니다.</p>
+            </div>
+
+            <div class="score-overview">
+                <div class="overall-score">
+                    <div class="score-circle">
+                        <span id="overall-score">0</span>
+                        <small>종합 점수</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detailed-scores">
+                <div class="score-item">
+                    <div class="score-label">유창성</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="fluency-score"></div>
+                    </div>
+                    <div class="score-value" id="fluency-value">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">독창성</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="originality-score"></div>
+                    </div>
+                    <div class="score-value" id="originality-value">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">융통성</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="flexibility-score"></div>
+                    </div>
+                    <div class="score-value" id="flexibility-value">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">정교성</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="elaboration-score"></div>
+                    </div>
+                    <div class="score-value" id="elaboration-value">0</div>
+                </div>
+            </div>
+
+            <div class="result-chart">
+                <canvas id="creativity-chart"></canvas>
+            </div>
+
+            <div class="result-analysis">
+                <h3>📊 결과 분석</h3>
+                <div id="analysis-content"></div>
+            </div>
+
+            <div class="result-actions">
+                <button id="restart-test" class="btn btn-secondary">다시 검사하기</button>
+                <button id="download-result" class="btn btn-primary">결과 저장하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
